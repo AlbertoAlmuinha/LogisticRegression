@@ -30,34 +30,34 @@ logistic_regression<-function(train, test, target, lr = 0.001, max_iter = 100000
   c(predicted_train, predicted_test) %<-% predict(x_train, x_test, optim_theta[[1]])
 
   if(probs == F){
-
-
-    predicted_train<-if_else(predicted_train>=0.5, 1, 0)
-
-    conf_matrix<-confusionMatrix(as.factor(predicted_train), as.factor(train[, target]))
-
-    predicted_test<-if_else(predicted_test>=0.5, 1, 0)
-
-    conf_matrix_plot<-ggplot(data = conf_matrix[[2]] %>% as.data.frame(),
-                             mapping = aes(x = Prediction, y = Reference)) +
-      geom_tile(aes(fill = Freq), colour = "white") +
-      geom_text(aes(label = sprintf("%5.0f", Freq)), vjust = 1) +
-      theme(legend.position = "none") +
-      scale_fill_gradient(low = "blue",
-                          high = "red",
-                          trans = "log")
-
-    return(list(predicted_train = predicted_train,
-                predicted_test = predicted_test,
-                conf_matrix = conf_matrix,
-                optim_theta = optim_theta,
-                conf_matrix_plot = conf_matrix_plot))
-
-  } else{
-
-
-    return(list(predicted_train = predicted_train,
-                predicted_test = predicted_test,
-                optim_theta = optim_theta))
-  }
+                
+                
+                predicted_train<-if_else(predicted_train>=0.5, 1, 0)
+                
+                predicted_test<-if_else(predicted_test>=0.5, 1, 0)
+                
+                conf_matrix<-confusionMatrix(as.factor(predicted_test), as.factor(test[, target]))
+                
+                conf_matrix_plot<-ggplot(data = conf_matrix[[2]] %>% as.data.frame(),
+                                         mapping = aes(x = Prediction, y = Reference)) +
+                                         geom_tile(aes(fill = Freq), colour = "white") + 
+                                         geom_text(aes(label = sprintf("%5.0f", Freq)), vjust = 1) +
+                                         theme(legend.position = "none") +
+                                         scale_fill_gradient(low = "blue",
+                                                             high = "red",
+                                                             trans = "log")
+                
+                return(list(predicted_train = predicted_train, 
+                            predicted_test = predicted_test,
+                            conf_matrix = conf_matrix, 
+                            optim_theta = optim_theta,
+                            conf_matrix_plot = conf_matrix_plot))
+                
+        } else{
+                
+                
+                return(list(predicted_train = predicted_train,
+                            predicted_test = predicted_test,
+                            optim_theta = optim_theta))
+        }
 }
