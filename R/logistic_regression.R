@@ -36,7 +36,7 @@ logistic_regression<-function(train, test, target, lr = 0.001, max_iter = 100000
                 
                 predicted_test<-if_else(predicted_test>=0.5, 1, 0)
                 
-                conf_matrix<-confusionMatrix(as.factor(predicted_test), as.factor(test[, target] %>% as.matrix() %>% as.vector())))
+                conf_matrix<-confusionMatrix(as.factor(predicted_test), as.factor(test[, target] %>% as.matrix() %>% as.vector()))
                 
                 conf_matrix_plot<-ggplot(data = conf_matrix[[2]] %>% as.data.frame(),
                                          mapping = aes(x = Prediction, y = Reference)) +
