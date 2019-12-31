@@ -146,7 +146,10 @@ logreg_ridge$conf_matrix
     ##                                           
     ##        'Positive' Class : 0               
     ## 
+    
+# LogisticRegression Shiny App
 
+You can access the shiny LogisticRegression App from my [Github Repository](https://github.com/AlbertoAlmuinha/LogisticRegressionApp) .
 
 # Issues
 
