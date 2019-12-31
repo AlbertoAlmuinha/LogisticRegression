@@ -105,12 +105,6 @@ logreg$conf_matrix
     ##        'Positive' Class : 0               
     ## 
 
-``` r
-logreg$conf_matrix_plot
-```
-
-![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
-
 We can also use a ridge regularization factor:
 
 ``` r
@@ -153,11 +147,6 @@ logreg_ridge$conf_matrix
     ##        'Positive' Class : 0               
     ## 
 
-``` r
-logreg_ridge$conf_matrix_plot
-```
-
-![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 # Issues
 
